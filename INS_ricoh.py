@@ -190,7 +190,6 @@ def pcl6(arquivo):
 # hp: M1212NF 1102W 
 # samsung: M4080FX 4070fr M4020ND SCX-483X
 
-# how can I sell it?
 # how it detect and install USB on pcl?
 # how it will install firmware?
 
