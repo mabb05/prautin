@@ -1,4 +1,6 @@
-# ->PRAUTIN<-
-## ->Printer Auto Installer<-
+# PRAUTIN
+## Printer Auto Installer
 
--> asdf <-
+A python script for automating printer installation.
+
+Currently work on progress..
