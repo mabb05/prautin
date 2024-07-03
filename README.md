@@ -1,6 +1,4 @@
-# PRAUTIN
-## Printer Auto Installer
+# PrAutIn
+## (Printer Auto Installer)
 
-A python script for automating printer installation.
-
-Currently work on progress..
+Automating printer installation.

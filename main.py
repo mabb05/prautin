@@ -6,8 +6,7 @@ portausb = ""
 
 opcoes = [
         "Ricoh 3710SF",
-        "Ricoh 3510SF",
-        "Epson L3150"
+        "Ricoh 3510SF"
         ]
 
 opcoes_c = [
@@ -24,10 +23,10 @@ escolha = easygui.choicebox("Selecione a impressora:\n\nLembre-se que o Spooler 
 if escolha:
 
 
-    coneccao = easygui.choicebox("Selecione o tipo de conexão:", "PrAutIn", opcoes_c)
+    # coneccao = easygui.choicebox("Selecione o tipo de conexão:", "PrAutIn", opcoes_c)
 
-    #insr.restart_spooler()
-    #insr.restart_explorer()
+    insr.restart_spooler()
+    insr.restart_explorer()
 
     if escolha == opcoes[0]:
         insr.ricoh3710()
