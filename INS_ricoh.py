@@ -8,16 +8,14 @@ from win32comext.shell import shell
 from playwright.sync_api import sync_playwright
 
 path_project = os.path.dirname(__file__)
-msgjson = json.load(open(f'{path_project}\\IMP\\doc\\MSG.json', 'r', encoding='utf8'))
-msgjson['pImg'] = f'{path_project}\\IMP\\img\\'
-
 temp_dir = tempfile.gettempdir()
 install_file = os.path.join(temp_dir,"ins.exe")
 lingua = locale.windows_locale[ctypes.windll.kernel32.GetUserDefaultUILanguage()]
 delaypadr = 1
 
-nomeimpressora = "RICOHNOME"
-ipins = "192.168.50.40"
+with open("param.txt", "r") as file:
+    ipins = file.readline()
+    nomeimp = file.readline()
 
 def restart_spooler():
     print("-------- INICIANDO/REINICIANDO SPOOLER --------")
@@ -92,79 +90,59 @@ def pcl6(arquivo):
     p.sleep(delaypadr); p.press('space')
 
     # IP
-    #p.sleep(delaypadr); p.press('down')
-    #p.sleep(0.2);       p.press('down')
-    #p.sleep(0.2);       p.press('enter')
-    #p.sleep(delaypadr); p.press('up')
-    #p.sleep(0.2);       p.press('up')
-    #p.sleep(0.2);       p.press('tab')
-    #p.sleep(0.2);       p.write(ipins)
-    #p.sleep(0.2);       p.press('enter')
+    # p.sleep(delaypadr); p.press('space')
+    # p.sleep(delaypadr); p.press('down')
+    # p.sleep(0.2);       p.press('down')
+    # p.sleep(0.2);       p.press('enter')
+    # p.sleep(delaypadr); p.write(ipins)
+    # p.sleep(0.2);       p.press('tab')
+    # p.sleep(0.2);       p.press('tab')
+    # p.sleep(0.2);       p.press('space')
+    # p.sleep(0.2);       p.press('enter')
 
+    # PORT
     p.sleep(delaypadr); p.press('space')
-    p.sleep(0.2); p.press('down')
-    p.sleep(0.2); p.press('down')
-    p.sleep(0.2); p.press('down')
-    p.sleep(0.2); p.press('down')
-    p.sleep(0.2); p.press('enter')
-    p.sleep(0.2); p.press('enter')
-
-    p.sleep(delaypadr); p.press('enter')
-    p.sleep(delaypadr); p.hotkey('ctrl','v')
-    p.sleep(0.2); p.press('tab')
-    p.sleep(0.2); p.press('enter')
-
-    p.sleep(delaypadr); p.press('tab')
-    p.sleep(0.2); p.press('tab')
-    p.sleep(0.2); p.press('tab')
-    p.sleep(0.2); p.press('tab')
-    p.sleep(0.2); p.press('tab')
-    p.sleep(0.2); p.press('tab')
-    p.sleep(0.2); p.press('space')
-    p.sleep(0.2); p.press('enter')
-    p.sleep(0.2); p.press('down')
-    p.sleep(0.2); p.press('enter')
-
-    p.sleep(0.2); p.press('tab')
-    p.sleep(0.2); p.press('enter')
-
-    p.sleep(delaypadr); p.press('tab')
-    p.sleep(0.2); p.press('tab')
-    p.sleep(0.2); p.press('tab')
-    p.sleep(0.2); p.press('tab')
-    p.sleep(0.2); p.press('tab')
-
-    p.sleep(delaypadr); p.press('r')
-    p.sleep(delaypadr); p.press('tab')
-    p.sleep(0.2); p.press('down')
-    p.sleep(0.2); p.press('enter')
-
-    p.sleep(3); p.write(nomeimpressora)
-
-    p.sleep(delaypadr); p.press('enter')
-
-    p.sleep(4)
-    if p.locateCenterOnScreen("img\\INS_perm.png", confidence=0.70):
-        p.sleep(0.2); p.press('tab')
-        p.sleep(0.2); p.press('tab')
-        p.sleep(0.2); p.press('enter')
-    p.sleep(2)
-
-    p.sleep(delaypadr); p.press('enter')
-    p.sleep(delaypadr); p.press('enter')
+    p.sleep(0.2);       p.press('down', 4, 0.2)
+    p.sleep(0.2);       p.press('space')
+    p.sleep(0.2);       p.press('enter')
+    p.sleep(0.2);       p.press('enter')
     
-    # !! admin box !!
+    # input("---CABO")
 
-# ricoh: 3410dn 3510dn 3710dn 377dn 377sf 310SF C3003 M/320F
-# epson: 3250 6190 6490 6270 
-# pantum: BM5100FDW 6550FDW
-# hp: M1212NF 1102W 
-# samsung: M4080FX 4070fr M4020ND SCX-483X
+    p.sleep(delaypadr); p.press('tab')
+    p.sleep(0.2);       p.press('space')
+    p.sleep(0.2);       p.hotkey('ctrl','v')
+    p.sleep(0.2);       p.write('\\DISK1')
+    p.sleep(0.2);       p.press('tab')
+    p.sleep(0.2);       p.press('space')
+    
+    p.sleep(delaypadr)
+    p.sleep(0.2);       p.write('GXE6N.INF')
+    p.sleep(0.2);       p.press('enter')
+    p.sleep(0.2);       p.press('up')
+    p.sleep(0.2);       p.press('enter')
 
-# install USB on pcl
-# install firmware
+    p.sleep(delaypadr)
+    p.sleep(0.2);       p.press('tab', 6, 0.2)
+    p.sleep(0.2);       p.press('down')
+    p.sleep(0.2);       p.press('down')
+    p.sleep(0.2);       p.press('enter')
 
-# WaitScreen
+    p.sleep(delaypadr)
+
+    # if p.locateCenterOnScreen('img\\INS_replace.png'):
+    p.sleep(0.2);       p.press('enter')
+    p.sleep(0.2);       p.press('enter')
+    p.sleep(1);       p.press('enter')
+    p.sleep(1);       p.press('esc',6,0.2)
+
+    print("Impressora instalada!")
+
 
 def esperaimg(path,time=60,click=False,dx=0,dy=0):
-    pass
+    
+    for _ in range(time):
+        if p.locateCenterOnScreen(path):
+            return True
+        time.sleep(1)
+    return False
