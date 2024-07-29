@@ -1,4 +1,8 @@
 # PrAutIn
 ## (Printer Auto Installer)
  
-Automating printer installation.
+Automating printer installation, still in development.
+
+Demo:
+
+[![DEMO]](demo.mp4)
